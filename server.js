@@ -60,12 +60,12 @@ io.on('connection', socket => {
     });
 
    // typing
-//     socket.on("typing",(data) => {
-//      socket.broadcast.emit("typing",data)
-//     });
-// socket.on("stop-typing",(data) => {
-//      socket.broadcast.emit("typing",data)
-//     });
+    socket.on("typing",(data) => {
+     socket.broadcast.emit("typing",data)
+    });
+socket.on("stop-typing",(data) => {
+     socket.broadcast.emit("typing",data)
+    });
 
 
 
