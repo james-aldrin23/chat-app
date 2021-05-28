@@ -116,36 +116,36 @@ document.getElementById('leave-btn').addEventListener('click', () => {
         window.location = '../index.html';
     } 
 });
-// var timeout;
-// var typing = false
+var timeout;
+var typing = false
 
-// function timeoutFunction() {
-//     typing = false;
-//     socket.emit("typing", false);
-// }
-// $('#msg').keyup(function() {
-//    var inputField = $('#msg')
-//      socket.emit("typing",{
-//         typing:inputField.val().length>0,
-//         username:username
-//     })
+function timeoutFunction() {
+    typing = false;
+    socket.emit("typing", false);
+}
+$('#msg').keyup(function() {
+   var inputField = $('#msg')
+     socket.emit("typing",{
+        typing:inputField.val().length>0,
+        username:username
+    })
    
     
-// });
-//    socket.on("typing", (data)=>{
-//      $('.typing').html(data.typing?`${data.username} is typing..`:'')
-// })
-// $('.btn').on('click',function(){
-// var inputField = $('#msg')
-//     socket.emit('stop-typing',{
-//     typing: inputField.val().length==0,
-//     username : username
-// })
-// })
-// socket.on("stop-typing", (data)=>{
-//     $('.typing').html("")
+});
+   socket.on("typing", (data)=>{
+     $('.typing').html(data.typing?`${data.username} is typing..`:'')
+})
+$('.btn').on('click',function(){
+var inputField = $('#msg')
+    socket.emit('stop-typing',{
+    typing: inputField.val().length==0,
+    username : username
+})
+})
+socket.on("stop-typing", (data)=>{
+    $('.typing').html("")
     
-// })
+})
 
 $("#users").on("click", ".private-user", function () {
     privateName = $(this).attr("user-name");
